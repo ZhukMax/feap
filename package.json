@@ -1,0 +1,19 @@
+{
+  "name": "FEAP",
+  "version": "0.1.0",
+  "description": "FrontEnd Admin Panel on React, Redux, Bootstrap",
+  "main": "index.js",
+  "repository": "https://github.com/ZhukMax/feap.git",
+  "author": "ZhukMax <zhukmax@ya.ru>",
+  "license": "Apache License v.2",
+  "dependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0"
+  }
+}
