@@ -1,7 +1,13 @@
 'use strict';
 
-let test = "Hello Max!";
+import auth from './components/auth'
 
-if (NODE_ENV == 'development') {
-    console.log(test);
-}
+document.getElementById('signup-button').onclick = function () {
+    require.ensure(['./components/signup'], function (require) {
+        let signup = require('./components/signup');
+
+        signup();
+    }, 'signup');
+};
+
+exports.auth = auth;

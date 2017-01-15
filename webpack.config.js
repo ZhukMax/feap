@@ -1,9 +1,9 @@
 'use strict';
 
-const NODE_ENV         = process.env.NODE_ENV || 'development';
-var webpack            = require('webpack');
-// var ExtractTextPlugin  = require('extract-text-webpack-plugin');
-// var cssName            = NODE_ENV === 'production' ? 'styles-[hash].css' : 'styles.css';
+const NODE_ENV           = 'development';
+const webpack            = require('webpack');
+const ExtractTextPlugin  = require('extract-text-webpack-plugin');
+var fileName             = 'url?name=[path][name].[ext]';
 
 module.exports = {
     context: __dirname + '/src',
@@ -14,12 +14,12 @@ module.exports = {
 
     output: {
         path:       __dirname + "/public/assets/feap/js",
-        publicPath: "/assets/js/",
+        publicPath: "/assets/feap/js/",
         filename:   "[name].js",
         library:    "[name]"
     },
 
-    watch: NODE_ENV == 'development',
+    watch: true,
     watchOptions: {
         aggregateTimeout: 100
     },
@@ -29,9 +29,10 @@ module.exports = {
             NODE_ENV: JSON.stringify(NODE_ENV)
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: "common"
-        })
-        // new ExtractTextPlugin(cssName)
+            name:   "feap-common",
+            chunks: ["index", "auth"]
+        }),
+        new ExtractTextPlugin('styles.css')
     ],
 
     resolve: {
@@ -47,12 +48,12 @@ module.exports = {
 
     module: {
         loaders: [
-            // {
-            //     test: /\.css$/,
-            //     loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
-            // },
             {
-                test:    /\.js$/,
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract('style', 'css!postcss')
+            },
+            {
+                test:    /\.jsx?$/,
                 exclude: [/node_modules/, /public/],
                 loader:  'babel',
                 query: {
@@ -65,34 +66,21 @@ module.exports = {
                         "transform-decorators-legacy"
                     ]
                 }
-            // },
-            // { test: /\.jsx?$/, loader: 'babel', exclude: [/node_modules/, /public/] },
-            // {
-            //     test: /\.json$/,
-            //     loader: 'json'
-            // },
-            // {
-            //     test:   /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
-            //     loader: 'file?name=[path][name].[ext]'
+            },
+            {
+                test: /\.json$/,
+                loader: 'json'
+            },
+            {
+                test:   /\.(png|jpg|svg|gif)$/,
+                loader: fileName + '&limit=4096'
+            },
+            {
+                test:   /\.(ttf|eot|woff|woff2)$/,
+                loader: fileName + '&limit=1'
             }
         ]
     },
 
-    devtool: NODE_ENV == 'development' ? 'cheap-source-map' : null
-
-    // devServer: {
-    //     headers: { 'Access-Control-Allow-Origin': '*' }
-    // }
+    devtool: 'cheap-source-map'
 };
-
-if (NODE_ENV == 'production') {
-    module.exports.plugins.push(
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings:     false,
-                drop_console: true,
-                unsafe:       true
-            }
-        })
-    );
-}

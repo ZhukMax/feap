@@ -1,13 +1,11 @@
 'use strict';
 
-import head from './components/head'
+import head from './components/App'
 
-head('test3');
-
-let test = "Hello Max!";
+let test = "Hello Mad Max!";
 
 if (NODE_ENV == 'development') {
     console.log(test);
 }
 
-exports.feap = head;
+exports.index = head;

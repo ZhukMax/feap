@@ -3,8 +3,8 @@
 
 # Generated files
 public/assets/
-public/feap/
 node_modules/
+stat.json
 
 # Log Files
 logs/
