@@ -8,11 +8,12 @@
   "license": "Apache-2.0",
   "scripts": {
     "dev": "webpack --json --profile > stat.json",
+    "devserver": "./node_modules/.bin/webpack-dev-server --inline --hot --colors",
     "prod": "better-npm-run deploy:prod"
   },
   "betterScripts": {
     "deploy:prod": {
-      "command": "better-npm-run git:new:branch ; rm stat.json ; rm -rf ./public"
+      "command": "better-npm-run git:new:branch ; rm stat.json ; rm webpack.config.js ; rm -rf ./public"
     },
     "git:new:branch": "NAME=date +prod_branch_%Y-%m-%d_%H-%M-%S ; git checkout -b $NAME"
   },

@@ -3,13 +3,13 @@
 const NODE_ENV           = 'development';
 const webpack            = require('webpack');
 const ExtractTextPlugin  = require('extract-text-webpack-plugin');
-var fileName             = 'url?name=[path][name].[ext]';
+var fileName             = 'url?name=[path][name].[ext]?[hash]';
 
 module.exports = {
     context: __dirname + '/src',
     entry:   {
         index: "./index",
-        auth: "./auth"
+        auth:  "./auth"
     },
 
     output: {
@@ -32,7 +32,7 @@ module.exports = {
             name:   "feap-common",
             chunks: ["index", "auth"]
         }),
-        new ExtractTextPlugin('styles.css')
+        new ExtractTextPlugin('style.css', {allChunks: true, disable: true})
     ],
 
     resolve: {
@@ -49,27 +49,17 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style', 'css!postcss')
-            },
-            {
                 test:    /\.jsx?$/,
                 exclude: [/node_modules/, /public/],
-                loader:  'babel',
-                query: {
-                    presets: [
-                        "es2015",
-                        "react",
-                        "stage-0"
-                    ],
-                    plugins: [
-                        "transform-decorators-legacy"
-                    ]
-                }
+                loader:  'babel'
             },
             {
                 test: /\.json$/,
                 loader: 'json'
+            },
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract('style', 'css!postcss')
             },
             {
                 test:   /\.(png|jpg|svg|gif)$/,
@@ -82,5 +72,10 @@ module.exports = {
         ]
     },
 
-    devtool: 'cheap-source-map'
+    devtool: 'cheap-source-map',
+
+    devServer: {
+        host:        '193.70.90.72',
+        contentBase: __dirname + '/public'
+    }
 };

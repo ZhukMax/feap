@@ -2,7 +2,7 @@
 
 import head from './components/App'
 
-let test = "Hello Mad Max!";
+let test = "Max Zhuk!";
 
 if (NODE_ENV == 'development') {
     console.log(test);
