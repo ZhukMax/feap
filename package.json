@@ -13,11 +13,14 @@
   },
   "betterScripts": {
     "deploy:prod": {
-      "command": "better-npm-run git:new:branch ; rm stat.json ; rm webpack.config.js ; rm -rf ./public"
+      "command": "better-npm-run git:new:branch ; rm stat.json ; rm webpack.config.js ; rm .babelrc ; rm -rf ./public"
     },
     "git:new:branch": "NAME=date +prod_branch_%Y-%m-%d_%H-%M-%S ; git checkout -b $NAME"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.0",
     "babel-core": "^6.21.0",

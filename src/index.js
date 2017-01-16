@@ -1,11 +1,5 @@
-'use strict';
+import React      from 'react';
+import ReactDOM   from 'react-dom';
+import App        from './components/App';
 
-import head from './components/App'
-
-let test = "Max Zhuk!";
-
-if (NODE_ENV == 'development') {
-    console.log(test);
-}
-
-exports.index = head;
+ReactDOM.render(<App />, document.getElementById('feap-root'));
