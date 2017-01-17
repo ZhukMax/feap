@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Error404 extends Component {
-    render() {
-        return (
-            <div>Заглушка для Error 404</div>
-        );
-    }
-}
+let Error404 = function(props) {
+    return (
+        <div>Error 404</div>
+    );
+};
 
 export default Error404;

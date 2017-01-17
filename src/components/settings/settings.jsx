@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-class CounterPage extends Component {
+class Settings extends Component {
     render() {
         return <div>Заглушка для счетчиков</div>;
     }
 }
 
-export default CounterPage;
+export default Settings;
