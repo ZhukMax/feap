@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Grid  from 'react-bootstrap/lib/Grid';
-import Dashboard from '../dashboard';
 import Head from '../head';
 
 import './App.css';
@@ -11,7 +10,7 @@ class App extends Component {
             <div>
                 <Head />
                 <Grid>
-                    <Dashboard />
+                    {this.props.children}
                 </Grid>
             </div>
         );
