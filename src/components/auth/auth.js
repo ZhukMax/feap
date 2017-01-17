@@ -1,3 +1,9 @@
-'use strict';
+import React, { Component } from 'react';
 
-console.log('Auth Form');
+class auth extends Component {
+    render() {
+        return <div>Заглушка для auth</div>;
+    }
+}
+
+export default auth;
