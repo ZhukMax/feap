@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Grid  from 'react-bootstrap/lib/Grid';
 import Head from '../head';
 
-import './App.css';
+const propTypes = {
+    children: PropTypes.node
+};
 
-class App extends Component {
+class admin extends Component {
     render() {
         return (
             <div>
@@ -17,4 +19,6 @@ class App extends Component {
     }
 }
 
-export default App;
+admin.propTypes = propTypes;
+
+export default admin;

@@ -1,5 +1,5 @@
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
+import * as constants from '../constants';
 
 export function incrementCounter() {
-    return { type: INCREMENT_COUNTER };
+    return { type: constants.INCREMENT_COUNTER };
 }

@@ -12,22 +12,25 @@
   "scripts": {
     "dev": "webpack --json --profile > stat.json",
     "devserver": "./node_modules/.bin/webpack-dev-server --inline --hot --colors",
-    "prod": "better-npm-run deploy:prod"
+    "prod": "better-npm-run git:new:branch ; better-npm-run git:back"
   },
   "betterScripts": {
-    "deploy:prod": {
-      "command": "better-npm-run git:new:branch ; rm stat.json ; rm webpack.config.js ; rm .babelrc ; rm -rf ./public"
-    },
-    "git:new:branch": "NAME=date +prod_branch_%Y-%m-%d_%H-%M-%S ; git checkout -b $NAME"
+    "git:new:branch": "NAME=date +prod_branch_%Y-%m-%d_%H-%M-%S ; git checkout -b $NAME ; better-npm-run prod:clean ; better-npm-run git:commit ; git push -u origin $NAME",
+    "git:commit": "git add ./ ; git commit -m \"Production commit.\"",
+    "git:back": "git checkout dev",
+    "prod:clean": "rm stat.json ; rm webpack.config.js ; rm .babelrc ; rm -rf ./public"
   },
   "dependencies": {
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.7",
+    "react-bootstrap-button-loader": "^1.0.7",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "react-router": "^3.0.1",
     "react-router-bootstrap": "^0.23.1",
+    "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
+    "redux-auth-wrapper": "^1.0.0",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {

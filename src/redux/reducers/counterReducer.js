@@ -1,10 +1,10 @@
-import { INCREMENT_COUNTER } from '../actions/counterActions';
+import * as constants from '../constants';
 
 const initialState = { value: 0 };
 
 export default function(state = initialState, action) {
     switch (action.type) {
-        case INCREMENT_COUNTER:
+        case constants.INCREMENT_COUNTER:
             return { value: state.value + 1 };
         default:
             return state;

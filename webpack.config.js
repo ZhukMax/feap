@@ -3,7 +3,7 @@
 const NODE_ENV           = 'development';
 const webpack            = require('webpack');
 const ExtractTextPlugin  = require('extract-text-webpack-plugin');
-var fileName             = 'url?name=[path][name].[ext]?[hash]';
+let fileName             = 'url?name=[path][name].[ext]?[hash]';
 
 module.exports = {
     context: __dirname + '/src',
