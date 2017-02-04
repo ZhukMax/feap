@@ -2,8 +2,9 @@
 .idea/
 
 # Generated files
-public/
+public/assets/
 node_modules/
+stat.json
 
 # Log Files
 logs/
