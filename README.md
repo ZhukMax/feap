@@ -2,14 +2,30 @@
 
 ## Install
 
-### With Yarn
+#### With Yarn
 `yarn add feap`
 
-### With npm
+#### With npm
 `npm i --save feap`
 
+## Use
+After install feap, react, react-dom, redux and webpack, you must create local project with feap using:
+```javascript
+/* path/to/frontent/sources/index.js */
+import React from 'react'
+import ReactDOM from 'react-dom'
+import feap from 'feap'
+
+const myApp = (
+    <feap />
+);
+
+ReactDOM.render(myApp, document.getElementById('root'));
+```
+You can see simple example in directory `examples/basic` or how I use it in my another projects like Phoxie ([https://github.com/ZhukMax/phoxie][link-phoxie])
+
 ## Credits 
-### Plugins:
+#### Plugins:
 * Facebook React.js
 * React DOM
 * React Router
@@ -20,5 +36,7 @@
 * Babel
 * Bootswatch Theme
 
-### Font Icons:
+#### Font Icons:
 * Glyphicons
+
+[link-phoxie]: https://github.com/ZhukMax/phoxie
