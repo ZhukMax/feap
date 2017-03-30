@@ -71,7 +71,13 @@ module.exports = {
         ]
     },
 
-    devtool: NODE_ENV === 'development' ? 'cheap-source-map' : false
+    devtool: NODE_ENV === 'development' ? 'cheap-source-map' : false,
+
+    devServer: {
+        host:        'localhost',
+        port:        '8080',
+        contentBase: __dirname + '/public'
+    }
 };
 
 if (NODE_ENV === 'production') {
