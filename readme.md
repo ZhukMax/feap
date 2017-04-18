@@ -1,5 +1,7 @@
 # FrontEnd Admin Panel
 
+# While this does not work, I try to make the first version!!!
+
 ## Install
 
 #### With Yarn
@@ -29,10 +31,10 @@ You can see simple example in directory `examples/basic` or how I use it in my a
 * Facebook React.js
 * React DOM
 * React Router
-* Bootstrap (react-bootstrap)
+* Bootstrap 4
+* Reactstrap
 * Redux
 * Webpack
-* Webpack DevServer
 * Babel
 * Bootswatch Theme
 
