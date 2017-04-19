@@ -24,7 +24,7 @@ const myApp = (
 
 ReactDOM.render(myApp, document.getElementById('root'));
 ```
-You can see simple example in directory `examples/basic` or how I use it in my another projects like Phoxie ([https://github.com/ZhukMax/phoxie][link-phoxie])
+You can see simple example in directory `examples/basic` or how I use it in my another projects like [Phoxie][link-phoxie]
 
 ## Credits 
 #### Plugins:
@@ -36,6 +36,7 @@ You can see simple example in directory `examples/basic` or how I use it in my a
 * Redux
 * Webpack
 * Babel
+* Superagent
 * Bootswatch Theme
 
 #### Font Icons:
