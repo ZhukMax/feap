@@ -1,15 +1,15 @@
-import React      from 'react'
-import ReactDOM   from 'react-dom'
-import { browserHistory, Router } from 'react-router'
-import { Provider } from 'react-redux'
-import { syncHistoryWithStore } from 'react-router-redux'
-import routes from './routes'
-import configureStore from './redux/configureStore'
+import React from 'react';
+import { browserHistory, Router } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+import initialState from './store/initialState';
+import routes from './routes';
 
-const store = configureStore();
+const store = configureStore(initialState());
 const history = syncHistoryWithStore(browserHistory, store);
 
-const feapApp = (
+const feap = (
     <Provider store={store}>
         <Router history={history}>
             {routes}
@@ -17,4 +17,4 @@ const feapApp = (
     </Provider>
 );
 
-ReactDOM.render(feapApp, document.getElementById('feap-root'));
+export default feap;
