@@ -13,7 +13,7 @@
 ## Use
 After install feap, react, react-dom, redux and webpack, you must create local project with feap using:
 ```javascript
-/* path/to/frontent/sources/index.js */
+/* src/index.js */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import feap from 'feap'
@@ -37,9 +37,8 @@ You can see simple example in directory `examples/basic` or how I use it in my a
 * Webpack
 * Babel
 * Superagent
-* Bootswatch Theme
 
 #### Font Icons:
-* Glyphicons
+* Font Awesome 4
 
 [link-phoxie]: https://github.com/ZhukMax/phoxie
