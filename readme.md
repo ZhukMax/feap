@@ -11,7 +11,7 @@
 `npm i --save feap`
 
 ## Use
-After install feap, react, react-dom, redux and webpack, you must create local project with feap using:
+After installing feap you must create local project with feap using:
 ```javascript
 /* src/index.js */
 import React from 'react'
@@ -37,8 +37,17 @@ You can see simple example in directory `examples/basic` or how I use it in my a
 * Webpack
 * Babel
 * Superagent
+* Faicon
 
 #### Font Icons:
 * Font Awesome 4
+
+## Change log
+
+Please see [CHANGELOG](changelog.md) for more information what has changed recently.
+
+## License
+
+The Apache License Version 2.0. Please see [License File](license.md) for more information.
 
 [link-phoxie]: https://github.com/ZhukMax/phoxie
