@@ -43,7 +43,7 @@ module.exports = {
             },
             {
                 test:    /\.jsx?$/,
-                exclude: [/node_modules/, /public/],
+                exclude: [/public/],
                 loader:  'babel-loader',
                 query: {
                     presets: [
