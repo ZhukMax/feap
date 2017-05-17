@@ -31,13 +31,14 @@ You can see simple example in directory `examples/basic` or how I use it in my a
 * Facebook React.js
 * React DOM
 * React Router
-* Bootstrap 4
-* Reactstrap
+* [Bootstrap 4][link-Bootstrap]
+* [Reactstrap][link-reactstrap]
 * Redux
 * Webpack
 * Babel
 * Superagent
 * Faicon
+* react-l20n-u
 
 #### Font Icons:
 * Font Awesome 4
@@ -51,3 +52,5 @@ Please see [CHANGELOG](changelog.md) for more information what has changed recen
 The Apache License Version 2.0. Please see [License File](license.md) for more information.
 
 [link-phoxie]: https://github.com/ZhukMax/phoxie
+[link-reactstrap]: https://reactstrap.github.io
+[link-Bootstrap]: http://getbootstrap.com/
