@@ -14,12 +14,12 @@
 After installing feap you must create local project with feap using:
 ```javascript
 /* src/index.js */
-import React from 'react'
-import ReactDOM from 'react-dom'
-import feap from 'feap'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Feap from 'feap';
 
 const myApp = (
-    <feap />
+    <Feap />
 );
 
 ReactDOM.render(myApp, document.getElementById('root'));
