@@ -1,9 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Login from '../components/login';
 import Header from '../components/header';
 import Sidebar from '../components/sidebar';
 import Footer from '../components/footer';
-import { connect } from 'react-redux';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './app.css';
@@ -26,7 +26,7 @@ class App extends React.Component {
     render() {
         let settings = this.props.route.settings;
         const { token } = this.props;
-        if (token) {
+        if (!token) {
             return(
                 <div>
                     <Login />
@@ -37,7 +37,9 @@ class App extends React.Component {
                 <div>
                     <Sidebar/>
                     <Header navigationItems={ settings.navigationItems }/>
-                    {this.props.children}
+                    <div className="b-content">
+                        {this.props.children}
+                    </div>
                     <Footer/>
                 </div>
             );
