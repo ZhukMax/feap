@@ -40,17 +40,6 @@ class Tree extends React.Component {
 
     render() {
         let treeItems = this.props.tree;
-        /*let treeItems = {
-            112: {"title": "Корпоративным клиентам"},
-            514: {"title": "О компании", "children": {
-                515: {"title": "Новости", "children": {
-                    516: {"title": "Новый аквафон скоро"},
-                    517: {"title": "Новый аквафон 2017"},
-                    518: {"title": "Уже ведем работы"}
-                }}
-            }},
-            64: {"title": "Бизнес с АКВАФОН"}
-        };*/
 
         return (
             <div className="b-tree-navbar">
