@@ -1,0 +1,38 @@
+.b-tree-navbar > header {
+    color: #a6afbb;
+    box-sizing: border-box;
+    cursor: default;
+    font-size: .9em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .035em;
+    padding: 12px 15px;
+    margin-top: 10px;
+    margin-left: -30px;
+    position: relative;
+}
+a.b-create-page {
+    cursor: pointer;
+    float: right;
+    color: #a6afbb;
+    font-weight: 300;
+}
+a.b-create-page:hover {
+    color: #ff6849;
+}
+.b-tree-nav {
+    margin-left: -16px;
+}
+.b-tree-nav li {
+    padding-left: 16px;
+}
+.b-tree-nav a {
+    color: #1b2536;
+    font-size: 16px;
+}
+.b-tree-nav a:hover {
+    color: #ff6849;
+}
+.b-tree-nav a[disabled] {
+    color: #adadad;
+}
