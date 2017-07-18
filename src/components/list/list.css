@@ -1,0 +1,6 @@
+.b-list-table {
+    margin-top: 32px;
+}
+.table-hover tbody tr:hover {
+    background-color: #d7f0ff;
+}
