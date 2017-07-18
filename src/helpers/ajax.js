@@ -1,5 +1,6 @@
 import request from 'superagent';
 import nocache from 'superagent-no-cache';
+import * as constants from '../constants';
 
 function post(url, token, data = {}) {
     let response;
@@ -28,12 +29,20 @@ function use(response, dispatch, doneType, falseType) {
                 error: "Error on server side, error code: " + res.status
             });
         } else {
+            // TODO проблема если приходит не Объект, тогда все нахрен зависает
             let data = JSON.parse(res.text);
-            if (data.error) {
-                dispatch({
-                    type: falseType,
-                    error: data.error
-                });
+
+            if (data.status === "error") {
+                if (data.message === "Bad jwt-token") {
+                    dispatch({
+                        type: constants.USER_LOGGED_OUT
+                    });
+                } else {
+                    dispatch({
+                        type: falseType,
+                        error: data.message
+                    });
+                }
             } else {
                 dispatch({
                     type: doneType,
