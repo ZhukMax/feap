@@ -1,5 +1,5 @@
 import * as constants from '../constants';
-import post from '../helpers/ajax';
+import { post, use } from '../helpers/ajax';
 
 export function inputError(payload) {
     return (dispatch) => {
@@ -40,32 +40,7 @@ export function loginAdmin(payload) {
         });
 
         let response = post("/api/auth", "", payload.data);
-        response.end((err, res) => {
-            if (err) {
-                dispatch({
-                    type: constants.USER_LOGIN_FALSE,
-                    error: err
-                });
-            } else if (res.status !== 200) {
-                dispatch({
-                    type: constants.USER_LOGIN_FALSE,
-                    error: "Error on server side, error code: " + res.status
-                });
-            } else {
-                let data = JSON.parse(res.text);
-                if (data.status === "error") {
-                    dispatch({
-                        type: constants.USER_LOGIN_FALSE,
-                        error: data.message
-                    });
-                } else {
-                    dispatch({
-                        type: constants.USER_LOGGED_IN,
-                        data: data
-                    });
-                }
-            }
-        });
+        use(response, dispatch, constants.USER_LOGGED_IN, constants.USER_LOGIN_FALSE);
     };
 }
 
