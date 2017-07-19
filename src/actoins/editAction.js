@@ -8,25 +8,7 @@ export function getData(payload) {
         });
 
         let response = post("/api/auth", payload.token, payload.data);
-        response.end((err, res) => {
-            if (err) {
-                dispatch({
-                    type: constants.EDIT_FORM_GET_DATA_FALSE,
-                    error: err
-                });
-            } else if (res.status !== 200) {
-                dispatch({
-                    type: constants.EDIT_FORM_GET_DATA_FALSE,
-                    error: "Error on server side, error code: " + res.status
-                });
-            } else {
-                let data = JSON.parse(res.text);
-                dispatch({
-                    type: constants.EDIT_FORM_GET_DATA_DONE,
-                    data: data
-                });
-            }
-        });
+        use(response, dispatch, constants.EDIT_FORM_GET_DATA_DONE, constants.EDIT_FORM_GET_DATA_FALSE);
     };
 }
 
