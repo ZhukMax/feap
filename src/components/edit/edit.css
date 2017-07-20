@@ -1,0 +1,103 @@
+.b-edit-content-wrapper {
+    width: 100%;
+    padding: 0 16px;
+}
+@media (min-width: 576px) {
+    .b-edit-header.container {
+        margin-top: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .b-edit-container.container {
+        margin-top: 8px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .b-edit-container.container {
+        margin-top: 8px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .b-edit-container.container {
+        margin-top: 12px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .b-edit-header.container {
+        margin-top: 0;
+        width: 100%;
+    }
+    .b-edit-container.container {
+        margin: 0;
+        padding: 0 0 0 320px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .b-edit-content.container {
+        width: 100%;
+        margin: 16px 0;
+    }
+}
+
+.b-edit-header.container {
+    background-color: #ffffff;
+    color: rgba(0,0,0,.5);
+    font-weight: 600;
+    z-index: 99;
+    padding: 12px 16px;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+    overflow: hidden;
+}
+.b-edit-header header {
+    padding-top: 8px;
+}
+.b-edit-buttons {
+    margin-right: 16px;
+}
+.b-edit-buttons button {
+    cursor: pointer;
+}
+.b-edit-content.container {
+    background-color: #ffffff;
+    padding: 16px;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+    border-radius: 2px;
+}
+.nav-tabs .nav-link {
+    cursor: pointer;
+}
+.nav-tabs .nav-link.active {
+    cursor: default;
+}
+.b-edit-tab-content {
+    padding: 16px;
+}
+.b-edit-label {
+    font-weight: 400;
+}
+.b-edit-input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #000;
+    opacity:  .4;
+}
+.b-edit-input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #000;
+    opacity:  .4;
+}
+.b-edit-input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #000;
+    opacity:  .4;
+}
+.b-edit-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:    #000;
+    opacity:  .4;
+}
+.b-edit-input::-ms-input-placeholder { /* Microsoft Edge */
+    color:    #000;
+    opacity:  .4;
+}
