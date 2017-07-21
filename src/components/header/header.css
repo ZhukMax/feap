@@ -1,0 +1,34 @@
+@media (min-width: 576px) {
+    .b-header-container.container {
+        margin-top: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.b-header-container.container {
+    background-color: #4f5467;
+    color: #ffffff;
+    z-index: 99;
+    padding-left: 320px;
+}
+button.b-header-button, a.b-header-button {
+    cursor: pointer;
+    color: #ffffff;
+    font-size: .8em;
+    padding: 0;
+    font-weight: normal;
+    width: 52px;
+    height: 52px;
+}
+a.b-header-button {
+    display: inline-block;
+    text-align: center;
+    padding-top: 15px;
+}
+button.b-header-button:hover, a.b-header-button:hover,
+button.b-header-button:focus, a.b-header-button:focus {
+    color: #ffffff;
+    background-color: rgba(0,0,0,.1);
+    box-shadow: none;
+}
