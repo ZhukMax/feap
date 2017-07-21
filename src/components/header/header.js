@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { logoutAdmin } from '../../actions/authAction';
-import { Container, Row, Col, Button, NavLink } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
 import { Faicon } from 'faicon';
 import Navigation from '../navigation';
 
@@ -27,10 +28,10 @@ class Header extends React.Component {
             <Container className="b-header-container">
                 <Row>
                     <Col>
-                        <Navigation/>
+                        <Navigation navigationItems={ this.props.navigationItems }/>
                     </Col>
                     <Col xs="auto">
-                        <NavLink href="#" className="b-header-button"><Faicon name="cogs"/></NavLink>
+                        <Link to="/admin/settings" className="b-header-button"><Faicon name="cogs"/></Link>
                     </Col>
                     <Col xs="auto">
                         <Button color="link" onClick={this.logoutHandler} className="b-header-button"><Faicon name="sign-out"/></Button>
