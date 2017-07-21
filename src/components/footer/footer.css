@@ -1,0 +1,19 @@
+@media (min-width: 576px) {
+    .b-footer-container.container {
+        margin-top: 32px;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+.b-footer-container.container {
+    background-color: #ffffff;
+    z-index: 99;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #58666e;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
