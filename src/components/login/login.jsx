@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
     return {
         button: state.auth.loginButtonDisabled,
         loginInputError: state.auth.loginInputError,
-        passwordInputError: state.auth.passwordInputError
+        passwordInputError: state.auth.passwordInputError,
+        loginFalse: state.auth.loginFalse
     };
 };
 
@@ -64,7 +65,7 @@ class Login extends React.Component {
                 <Jumbotron className="b-jumbotron-login-page">
                     <Form>
                         <FormGroup row color={ this.props.loginInputError }>
-                            <Label for="formLogin" sm={2}>Login </Label>
+                            <Label for="formLogin" sm={2}>Логин </Label>
                             <Col sm={10}>
                                 <InputGroup>
                                     <InputGroupAddon><Faicon name="user"/></InputGroupAddon>
@@ -73,7 +74,7 @@ class Login extends React.Component {
                             </Col>
                         </FormGroup>
                         <FormGroup row color={ this.props.passwordInputError }>
-                            <Label for="formPassword" sm={2}>Password</Label>
+                            <Label for="formPassword" sm={2}>Пароль </Label>
                             <Col sm={10}>
                                 <InputGroup>
                                     <InputGroupAddon><Faicon name="lock"/></InputGroupAddon>
@@ -84,7 +85,7 @@ class Login extends React.Component {
                         <FormGroup check row>
                             <Col sm={{ size: 8, offset: 7 }}>
                                 <Button id="b-form-login-button" onClick={this.onClickHandler} disabled={ this.props.button }>
-                                    <Faicon name="refresh" spin/> Login
+                                    <Faicon name="refresh" spin/> Вход
                                 </Button>
                             </Col>
                             <FormFeedback>{ this.props.loginFalse }</FormFeedback>
