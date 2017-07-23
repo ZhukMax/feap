@@ -1,0 +1,20 @@
+.b-navigation.navbar {
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+    float: right;
+}
+.b-navigation a {
+    display: inline-block;
+    color: #ffffff;
+    font-size: 1em;
+    padding: 14px;
+    font-weight: normal;
+}
+.b-navigation a:hover,
+.b-navigation a:visited,
+.b-navigation a:focus {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: rgba(0,0,0,.1);
+}
