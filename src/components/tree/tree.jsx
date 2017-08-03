@@ -20,18 +20,22 @@ class Tree extends React.Component {
     }
 
     treeMaker(items) {
-        return Object.keys(items).map(function (key) {
-            return (
-                <NavItem key={key.toString()}>
-                    <Link to={ "/admin/pages/" + key }>{ items[key].title }</Link>
-                    {
-                        items[key].children ?
-                            <Nav vertical>{ this.treeMaker(items[key].children) }</Nav>
-                            : ""
-                    }
-                </NavItem>
-            );
-        }, this);
+        if(Object.prototype.toString.call(items) === '[object Object]') {
+            return Object.keys(items).map(function (key) {
+                if (items[key]) {
+                    return (
+                        <NavItem key={key.toString()}>
+                            <Link to={ "/admin/pages/" + key }>{ items[key].title }</Link>
+                            {
+                                items[key].children ?
+                                    <Nav vertical>{ this.treeMaker(items[key].children) }</Nav>
+                                    : ""
+                            }
+                        </NavItem>
+                    );
+                }
+            }, this);
+        }
     }
 
     addPageHandler() {
@@ -39,7 +43,7 @@ class Tree extends React.Component {
     }
 
     render() {
-        let treeItems = this.props.tree;
+        let treeItems = this.props.tree.tree;
 
         return (
             <div className="b-tree-navbar">
