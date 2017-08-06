@@ -25,10 +25,15 @@ class Tree extends React.Component {
                 if (items[key]) {
                     return (
                         <NavItem key={key.toString()}>
+                            {
+                                items[key].children ?
+                                    <a href="#" className="b-tree-visible" onClick={this.openSubmenu.bind(this, key)}><Faicon name="angle-right"/></a>
+                                    : ""
+                            }
                             <Link to={ "/admin/pages/" + key }>{ items[key].title }</Link>
                             {
                                 items[key].children ?
-                                    <Nav vertical>{ this.treeMaker(items[key].children) }</Nav>
+                                    <div id={"submenu-" + key} className="b-tree-submenu"><Nav vertical>{ this.treeMaker(items[key].children) }</Nav></div>
                                     : ""
                             }
                         </NavItem>
@@ -40,6 +45,17 @@ class Tree extends React.Component {
 
     addPageHandler() {
         createPage({})(this.props.dispatch);
+    }
+
+    openSubmenu(id) {
+        let submenu = document.getElementById("submenu-" + id);
+        let display = submenu.style.display;
+
+        if (display !== "block") {
+            submenu.setAttribute("style", "display:block");
+        } else {
+            submenu.setAttribute("style", "display:none");
+        }
     }
 
     render() {
