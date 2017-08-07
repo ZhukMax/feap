@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { getTreeItems, createPage } from '../../actions/treeAction';
 import { Nav, NavItem } from 'reactstrap';
 import { Faicon } from 'faicon';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 import './tree.css';
 
@@ -48,6 +49,12 @@ class Tree extends React.Component {
     }
 
     openSubmenu(id) {
+        /**
+         * Wrong, but easy way
+         * TODO fix this method and add action
+         *
+         * @type {Element}
+         */
         let submenu = document.getElementById("submenu-" + id);
         let display = submenu.style.display;
 
@@ -56,6 +63,12 @@ class Tree extends React.Component {
         } else {
             submenu.setAttribute("style", "display:none");
         }
+
+        // TODO Add animation for <Faicon name="angle-right"/> :31
+    }
+
+    autoHeightMax() {
+        return window.innerHeight - 120;
     }
 
     render() {
@@ -67,9 +80,12 @@ class Tree extends React.Component {
                     ___ Страницы сайта
                     <a href="#" className="b-create-page" onClick={this.addPageHandler}><Faicon name="plus"/></a>
                 </header>
-                <Nav vertical className="b-tree-nav">
-                    { this.treeMaker(treeItems) }
-                </Nav>
+                <Scrollbars autoHeight autoHeightMin={100} autoHeightMax={this.autoHeightMax()}
+                            autoHide autoHideTimeout={1000} autoHideDuration={200}>
+                    <Nav vertical className="b-tree-nav">
+                        { this.treeMaker(treeItems) }
+                    </Nav>
+                </Scrollbars>
             </div>
         );
     }
