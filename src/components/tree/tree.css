@@ -21,10 +21,10 @@ a.b-create-page:hover {
     color: #ff6849;
 }
 .b-tree-nav {
-    margin-left: -16px;
+    margin-left: -8px;
 }
 .b-tree-nav li {
-    padding-left: 16px;
+    padding-left: 20px;
 }
 .b-tree-nav a {
     color: #1b2536;
@@ -35,4 +35,17 @@ a.b-create-page:hover {
 }
 .b-tree-nav a[disabled] {
     color: #adadad;
+}
+.b-tree-visible {
+    margin-left: -12px;
+}
+.b-tree-visible .fa {
+    width: 12px;
+    padding-right: 8px;
+    font-weight: 100;
+    color: #adadad;
+}
+.b-tree-submenu {
+    display: none;
+    margin-bottom: 8px;
 }
