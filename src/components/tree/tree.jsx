@@ -22,7 +22,7 @@ class Tree extends React.Component {
 
     treeMaker(items) {
         if(Object.prototype.toString.call(items) === '[object Object]') {
-            return Object.keys(items).map(function (key) {
+            return Object.keys(items).map((key) => {
                 if (items[key]) {
                     return (
                         <NavItem key={key.toString()}>
@@ -71,6 +71,7 @@ class Tree extends React.Component {
         return window.innerHeight - 120;
     }
 
+    // TODO Add loader
     render() {
         let treeItems = this.props.tree.tree;
 
