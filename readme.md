@@ -18,8 +18,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Feap from 'feap';
 
+let navigationItems = {
+    "users": "Users"
+};
+
 const myApp = (
-    <Feap />
+    <Feap
+navigationItems={navigationItems}
+    />
 );
 
 ReactDOM.render(myApp, document.getElementById('root'));
