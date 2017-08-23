@@ -28,6 +28,7 @@ Objects list.
 export const LIST_GET_DATA_REQUEST = 'LIST_GET_DATA_REQUEST';
 export const LIST_GET_DATA_DONE    = 'LIST_GET_DATA_DONE';
 export const LIST_GET_DATA_FALSE   = 'LIST_GET_DATA_FALSE';
+export const LIST_UPDATE           = 'LIST_UPDATE';
 
 /*
 Edit form.
