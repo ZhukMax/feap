@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { getData } from '../../actions/listAction';
 import ErrorView from '../errors/ErrorView';
 import { Container, Row, Col, Table, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import { Faicon } from 'faicon';
 
 import './list.css';
 
@@ -43,6 +44,7 @@ class List extends React.Component {
                         );
                     }, this)
                 }
+                <th>&nbsp;</th>
             </tr>
             </thead>
         )
@@ -64,6 +66,9 @@ class List extends React.Component {
                             );
                         })
                     }
+                    <th scope="row">
+                        <Link to={ window.location.pathname + "/" + key }><Faicon name="pencil-square-o"/></Link>
+                    </th>
                 </tr>
             );
         }, this);
