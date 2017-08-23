@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { getData } from '../../actions/listAction';
+import { getData, updateData } from '../../actions/listAction';
 import ErrorView from '../errors/ErrorView';
-import { Container, Row, Col, Table, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import { Container, Row, Col, Table, Pagination, PaginationItem, PaginationLink,
+    Button, ButtonGroup } from 'reactstrap';
 import { Faicon } from 'faicon';
 
 import './list.css';
@@ -13,7 +14,8 @@ const mapStateToProps = (state) => {
         token: state.auth.token,
         items: state.list.items,
         request: state.list.request,
-        error: state.list.error
+        error: state.list.error,
+        type: state.list.type
     };
 };
 
@@ -21,6 +23,8 @@ class List extends React.Component {
     componentWillMount() {
         this.getData();
         this.getData = this.getData.bind(this);
+        this.getHead = this.getHead.bind(this);
+        this.update = this.update.bind(this);
     }
 
     getData() {
@@ -74,7 +78,38 @@ class List extends React.Component {
         }, this);
     }
 
+    getHead() {
+        return (
+            <Container className="b-header">
+                <Row>
+                    <Col>
+                        <header>
+                            <h5>{ this.props.request === false ? this.props.items.title : ""}</h5>
+                        </header>
+                    </Col>
+                    <Col className="b-edit-buttons" xs="auto">
+                        <ButtonGroup>
+                            <Link to={ window.location.pathname + "/new" }><Button outline color="info">Добавить</Button></Link>
+                        </ButtonGroup>
+                    </Col>
+                </Row>
+            </Container>
+        );
+    }
+
+    update() {
+        if (this.props.params.object !== this.props.type) {
+            let type = this.props.params.object;
+            updateData({"type": type})(this.props.dispatch);
+
+            this.getData();
+        }
+    }
+
     render() {
+        // TODO В консоли варнинг, починить
+        this.update();
+
         let listItems = this.props.items;
 
         if (this.props.error) {
@@ -86,15 +121,7 @@ class List extends React.Component {
         } else {
             return (
                 <Container className="b-container">
-                    <Container className="b-header">
-                        <Row>
-                            <Col>
-                                <header>
-                                    <h5>{ this.props.request === false ? listItems.title : ""}</h5>
-                                </header>
-                            </Col>
-                        </Row>
-                    </Container>
+                    { this.getHead() }
                     <div className="b-content-wrapper">
                         <Container className="b-content">
                             <Row>
