@@ -5,6 +5,7 @@ body.feap {
     text-shadow: rgba(0,0,0,.15) 0 0 1px;
     font-size: 16px;
     font-weight: 300;
+    overflow: hidden;
 }
 @media (min-width: 576px) {
     .b-content-wrapper {
@@ -49,14 +50,21 @@ body.feap {
         margin: 0;
         padding: 0 0 0 320px;
         width: 100%;
+        max-width: 100%;
         box-sizing: border-box;
     }
     .b-content-wrapper {
         width: 100%;
+        max-width: 100%;
         padding: 0 16px;
+    }
+    .b-header.container {
+        width: 100%;
+        max-width: 100%;
     }
     .b-content.container {
         width: 100%;
+        max-width: 100%;
         margin: 16px 0;
     }
 }
