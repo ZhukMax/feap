@@ -6,10 +6,7 @@ import './navigation.css';
 
 class Navigation extends React.Component {
     render() {
-        let navigationItems = Object.assign({}, {
-            "users": "Users",
-            "media": "Media"
-        }, this.props.navigationItems);
+        let navigationItems = Object.assign({}, this.props.navigationItems);
 
         return (
             <Navbar light toggleable className="b-navigation">
