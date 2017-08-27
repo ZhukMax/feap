@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { Container, Row, Col, Button, ButtonGroup, TabContent,
-    TabPane, Nav, NavItem, NavLink, Form } from 'reactstrap';
+    TabPane, Nav, NavItem, NavLink, Form, Alert } from 'reactstrap';
 import Loader from '../loader';
 import FormInput from "../input";
 import classnames from 'classnames';
-import { getData, save, updateForm } from '../../actions/editAction';
+import { getData, add, save, remove, updateForm, dismissAlert } from '../../actions/editAction';
 
 import './edit.css';
 
@@ -15,7 +16,8 @@ const mapStateToProps = (state) => {
         load: state.edit.load,
         object: state.edit.object,
         id: state.edit.id,
-        type: state.edit.type
+        type: state.edit.type,
+        alert: state.edit.alert
     };
 };
 
@@ -32,9 +34,15 @@ class Edit extends React.Component {
 
         this.validation = this.validation.bind(this);
         this.saveHandler = this.saveHandler.bind(this);
+        this.deleteHandler = this.deleteHandler.bind(this);
         this.getForm = this.getForm.bind(this);
         this.getFormData = this.getFormData.bind(this);
         this.update = this.update.bind(this);
+        this.onDismissAlert = this.onDismissAlert.bind(this);
+    }
+
+    onDismissAlert() {
+        dismissAlert()(this.props.dispatch);
     }
 
     getFormData() {
@@ -42,7 +50,11 @@ class Edit extends React.Component {
         data.object = this.props.params.object;
         data.id = this.props.params.id;
 
-        getData({"token": this.props.token, data})(this.props.dispatch);
+        if (data.id !== "new") {
+            getData({"token": this.props.token, data})(this.props.dispatch);
+        } else {
+            add({"token": this.props.token, data})(this.props.dispatch);
+        }
     }
 
     toggle(tab) {
@@ -54,6 +66,7 @@ class Edit extends React.Component {
         }
     }
 
+    // TODO
     validation(data) {
         let validation = true;
         return validation;
@@ -69,8 +82,21 @@ class Edit extends React.Component {
         });
 
         if (this.validation(data)) {
-            save({"data": data})(this.props.dispatch);
+            if (this.props.id !== "new") {
+                data["id"] = this.props.id;
+            }
+            data["object"] = this.props.type;
+            save({"token": this.props.token, "data": data})(this.props.dispatch);
         }
+    }
+
+    deleteHandler() {
+        let data = {};
+        data["id"] = this.props.id;
+        data["object"] = this.props.type;
+        remove({"token": this.props.token, "data": data})(this.props.dispatch);
+
+        // TODO redirect
     }
 
     tabsMaker(items) {
@@ -127,7 +153,8 @@ class Edit extends React.Component {
                     <Col className="b-edit-buttons" xs="auto">
                         <ButtonGroup>
                             <Button color="primary" onClick={this.saveHandler}>Сохранить</Button>
-                            <Button outline color="warning">Отменить</Button>
+                            <Button outline color="warning" onClick={this.deleteHandler}>Удалить</Button>
+                            <Link to={"/admin/"}><Button outline color="warning">Отменить</Button></Link>
                         </ButtonGroup>
                     </Col>
                 </Row>
@@ -173,8 +200,13 @@ class Edit extends React.Component {
         // TODO В консоли варнинг, починить
         this.update();
 
+        let color = this.props.alert.color ? this.props.alert.color : "info" ;
+
         return (
             <Container className="b-container">
+                <Alert color={color} isOpen={this.props.alert.visible} toggle={this.onDismissAlert}>
+                    { this.props.alert.message }
+                </Alert>
                 { this.getHead() }
                 {
                     this.props.load ? <Loader/> : this.getForm()
