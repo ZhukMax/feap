@@ -17,7 +17,8 @@ const mapStateToProps = (state) => {
         object: state.edit.object,
         id: state.edit.id,
         type: state.edit.type,
-        alert: state.edit.alert
+        alert: state.edit.alert,
+        redirect: state.edit.redirect
     };
 };
 
@@ -95,8 +96,6 @@ class Edit extends React.Component {
         data["id"] = this.props.id;
         data["object"] = this.props.type;
         remove({"token": this.props.token, "data": data})(this.props.dispatch);
-
-        // TODO redirect
     }
 
     tabsMaker(items) {
@@ -201,6 +200,11 @@ class Edit extends React.Component {
         this.update();
 
         let color = this.props.alert.color ? this.props.alert.color : "info" ;
+
+        // Redirect
+        if (this.props.redirect) {
+            this.props.router.push('/admin/' + this.props.type);
+        }
 
         return (
             <Container className="b-container">
