@@ -32,7 +32,16 @@ module.exports = {
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV)
         }),
-        new ExtractTextPlugin(cssName)
+        new ExtractTextPlugin(cssName),
+        new CleanWebpackPlugin([ 'public/assets/feap/' ], {
+            root:    __dirname,
+            verbose: true,
+            dry:     false
+        }),
+        new AssetsPlugin({
+            filename: 'assets.json',
+            path:     __dirname + "/public/assets/feap"
+        })
     ],
 
     module: {
@@ -88,19 +97,6 @@ if (NODE_ENV === 'production') {
                 drop_console: true,
                 unsafe:       true
             }
-        })
-    );
-    module.exports.plugins.push(
-        new CleanWebpackPlugin([ 'public/assets/feap/' ], {
-            root:    __dirname,
-            verbose: true,
-            dry:     false
-        })
-    );
-    module.exports.plugins.push(
-        new AssetsPlugin({
-            filename: 'assets.json',
-            path:     __dirname + "/public/assets/feap"
         })
     );
 }
