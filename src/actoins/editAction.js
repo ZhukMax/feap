@@ -22,6 +22,14 @@ export function updateForm(payload) {
     };
 }
 
+export function dismissAlert(payload) {
+    return (dispatch) => {
+        dispatch({
+            type: constants.EDIT_FORM_DISMISS_ALERT
+        });
+    };
+}
+
 export function inputError(payload) {
     return (dispatch) => {
         dispatch({
@@ -40,7 +48,7 @@ export function add(payload) {
             type: constants.EDIT_FORM_GET_DATA_REQUEST
         });
 
-        let response = post("/api/" + payload.data.object + "/new", payload.token, payload.data);
+        let response = post("/feap/" + payload.data.object + "/new", payload.token, payload.data);
         use(response, dispatch, constants.EDIT_FORM_GET_DATA_DONE, constants.EDIT_FORM_GET_DATA_FALSE);
     };
 }
@@ -50,5 +58,19 @@ export function save(payload) {
         dispatch({
             type: constants.EDIT_FORM_SAVE_REQUEST
         });
+
+        let response = post("/feap/" + payload.data.object + "/save", payload.token, payload.data);
+        use(response, dispatch, constants.EDIT_FORM_SAVE_DONE, constants.EDIT_FORM_SAVE_FALSE);
+    };
+}
+
+export function remove(payload) {
+    return (dispatch) => {
+        dispatch({
+            type: constants.EDIT_FORM_SAVE_REQUEST
+        });
+
+        let response = post("/feap/" + payload.data.object + "/delete", payload.token, payload.data);
+        use(response, dispatch, constants.EDIT_FORM_DELETE_DONE, constants.EDIT_FORM_DELETE_FALSE);
     };
 }
