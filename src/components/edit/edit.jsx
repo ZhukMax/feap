@@ -123,9 +123,9 @@ class Edit extends React.Component {
                     return (
                         <TabPane tabId={"t" + i} key={i}>
                             {
-                                Object.keys(items[key]).map((key2, y) => {
+                                Object.keys(items[key]).map((key2) => {
                                     return (
-                                        <Row key={y}>
+                                        <Row key={key2 + i}>
                                             <Col sm="12">
                                                 <FormInput item={items[key][key2]} name={key2} id={key2} class="b-edit-"/>
                                             </Col>

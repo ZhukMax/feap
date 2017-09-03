@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, FormGroup, Label, Input } from 'reactstrap';
+import TinyMCE from 'react-mce';
 
 export default class FormInput extends React.Component {
     render() {
@@ -44,7 +45,7 @@ export default class FormInput extends React.Component {
                     <Col sm={10}>
                         <Input type="select" name={name} id={id} className={className + "input"}>
                             {
-                                Object.keys(value).map((key, i) => {
+                                Object.keys(value).map((key) => {
                                     return (
                                         <option value={key} key={key}>{value[key]}</option>
                                     );
@@ -68,6 +69,23 @@ export default class FormInput extends React.Component {
                     <Label for={id} className={className + "label"}>{label}</Label>
                     <Input type={type} name={name} id={id} className={className + "input"}/>
                 </FormGroup>
+            );
+        } else if (type === 'textarea') {
+            return (
+                <div>
+                    <Col sm="2">
+                        <Label for={id} className={className + "label"}>{label}</Label>
+                    </Col>
+                    <Col sm="10">
+                        <TinyMCE id={id}
+                                 content={value}
+                                 config={{
+                                     plugins: 'autolink link image lists print preview',
+                                     toolbar: 'undo redo | bold italic | alignleft aligncenter alignright image link'
+                                 }}
+                        />
+                    </Col>
+                </div>
             );
         } else {
             return (
