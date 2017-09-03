@@ -7,7 +7,7 @@ export function getData(payload) {
             type: constants.EDIT_FORM_GET_DATA_REQUEST
         });
 
-        let response = post("/api/" + payload.data.object + "/get", payload.token, payload.data);
+        let response = post("/feap/" + payload.data.object + "/get", payload.token, payload.data);
         use(response, dispatch, constants.EDIT_FORM_GET_DATA_DONE, constants.EDIT_FORM_GET_DATA_FALSE);
     };
 }

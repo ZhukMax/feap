@@ -141,6 +141,8 @@ class Edit extends React.Component {
     }
 
     getHead() {
+        let object = this.props.type;
+
         return (
             <Container className="b-header">
                 <Row>
@@ -153,7 +155,7 @@ class Edit extends React.Component {
                         <ButtonGroup>
                             <Button color="primary" onClick={this.saveHandler}>Сохранить</Button>
                             <Button outline color="warning" onClick={this.deleteHandler}>Удалить</Button>
-                            <Link to={"/admin/"}><Button outline color="warning">Отменить</Button></Link>
+                            <Link to={"/admin/" + object}><Button outline color="warning">Отменить</Button></Link>
                         </ButtonGroup>
                     </Col>
                 </Row>
