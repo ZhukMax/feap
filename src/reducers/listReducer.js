@@ -3,7 +3,8 @@ import * as constants from '../constants';
 const initialState = {
     "items": {},
     "request": null,
-    "error": null
+    "error": null,
+    "type": null
 };
 
 function list(state = initialState, action) {
@@ -27,6 +28,11 @@ function list(state = initialState, action) {
                 items: {},
                 request: false,
                 error: action.error
+            });
+
+        case constants.LIST_UPDATE:
+            return Object.assign({}, state, {
+                type: action.object
             });
 
         default:
