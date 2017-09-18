@@ -29,7 +29,7 @@ function use(response, dispatch, doneType, falseType) {
                 error: "Error on server side, error code: " + res.status
             });
         } else {
-            // TODO проблема если приходит не Объект, тогда все нахрен зависает
+            // TODO проблема если приходит не Объект, тогда все зависает
             let data = JSON.parse(res.text);
 
             if (data.status === "error") {
