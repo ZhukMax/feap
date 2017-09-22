@@ -39,7 +39,7 @@ export function loginAdmin(payload) {
             type: constants.USER_LOGIN_REQUEST
         });
 
-        let response = post("/api/auth", "", payload.data);
+        let response = post("/api/auth/login", "", payload.data);
         use(response, dispatch, constants.USER_LOGGED_IN, constants.USER_LOGIN_FALSE);
     };
 }

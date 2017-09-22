@@ -4,7 +4,7 @@ import { post, use } from '../helpers/ajax';
 export function getData(payload) {
     return (dispatch) => {
         dispatch({
-            type: constants.LIST_GET_DATA_REQUEST
+           type: constants.LIST_GET_DATA_REQUEST
         });
 
         let response = post("/feap/" + payload.data.object + "/list", payload.token, payload.data);
