@@ -1,69 +1,26 @@
-import React, { PropTypes, Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { Container, Row, Col } from 'reactstrap';
 
-import './dashboard.css';
-
-const propTypes = {
-    initialName: PropTypes.string
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    };
 };
 
-const defaultProps = {
-    initialName: 'Аноним'
-};
-
-class App extends Component {
-    constructor(props) {
-        super(props);
-
-        this.handleNameChange = this.handleNameChange.bind(this);
-        this.renderGreetingWidget = this.renderGreetingWidget.bind(this);
-
-        this.state = {
-            name:            this.props.initialName,
-            touched:         false,
-            greetingWidget:  () => null
-        };
-    }
-
-    handleNameChange(val) {
-        const name = val.target.value;
-
-        this.setState({ touched: true });
-
-        if (name.length === 0) {
-            this.setState({ name: this.props.initialName });
-        } else {
-            this.setState({ name });
-        }
-    }
-
-    renderGreetingWidget() {
-        if (!this.state.touched) {
-            return null;
-        }
-
-        return (
-        <div>
-        <hr />
-        <p>Здравствуйте, {this.state.name}!</p>
-        </div>
-    );
-    }
-
+class Dashboard extends React.Component {
     render() {
         return (
-            <div className='App'>
-                <h1>Hello World!</h1>
-                <div>
-                    <p>Введите Ваше имя:</p>
-                    <div><input onChange={this.handleNameChange} /></div>
-                    {this.renderGreetingWidget()}
-                </div>
-            </div>
+            <Container>
+                <Row>
+                    <Col>
+                    </Col>
+                </Row>
+            </Container>
         );
-    }
+    };
 }
 
-App.propTypes = propTypes;
-App.defaultProps = defaultProps;
+Dashboard = connect(mapStateToProps)(Dashboard);
 
-export default App;
+export default Dashboard;

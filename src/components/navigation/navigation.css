@@ -18,3 +18,16 @@
     text-decoration: none;
     background-color: rgba(0,0,0,.1);
 }
+.dropdown-menu {
+    box-shadow: 0 0 4px rgba(0,0,0,.1);
+}
+.b-navigation .dropdown-item a {
+    display: block;
+    width: 100%;
+    clear: both;
+    font-weight: normal;
+    color: #212529 !important;
+    white-space: nowrap;
+    background: none;
+    border: 0;
+}

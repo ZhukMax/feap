@@ -13,14 +13,20 @@ class Navigation extends React.Component {
 
         // TODO We need REDUX
         this.state = {
-            dropdownOpen: false
+            dropdownOpen: "none"
         };
     }
 
     toggle() {
-        this.setState({
-            dropdownOpen: !this.state.dropdownOpen
-        });
+        if (this.state.dropdownOpen === "none") {
+            this.setState({
+                dropdownOpen: "block"
+            });
+        } else {
+            this.setState({
+                dropdownOpen: "none"
+            });
+        }
     }
 
     render() {
@@ -33,12 +39,12 @@ class Navigation extends React.Component {
                         Object.keys(navigationItems).map(function (key) {
                             if (navigationItems[key].items) {
                                 return (
-                                    <NavDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}
+                                    <NavDropdown toggle={this.toggle}
                                                  key={key.toString()}>
                                         <DropdownToggle nav caret>
                                             {navigationItems[key].title}
                                         </DropdownToggle>
-                                        <DropdownMenu>
+                                        <DropdownMenu style={{display:this.state.dropdownOpen}}>
                                             {
                                                 Object.keys(navigationItems[key].items).map(function (key2) {
                                                     return (

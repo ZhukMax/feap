@@ -78,11 +78,11 @@ export default class FormInput extends React.Component {
                     </Col>
                     <Col sm="10">
                         <TinyMCE id={id}
-                                 content={value}
-                                 config={{
-                                     plugins: 'autolink link image lists print preview',
-                                     toolbar: 'undo redo | bold italic | alignleft aligncenter alignright image link'
-                                 }}
+                            content={value}
+                            config={{
+                                plugins: 'autolink link image lists print preview',
+                                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright image link'
+                            }}
                         />
                     </Col>
                 </div>
