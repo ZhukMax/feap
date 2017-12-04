@@ -24,7 +24,7 @@ let navigationItems = {
 
 const myApp = (
     <Feap
-navigationItems={navigationItems}
+        navigationItems={navigationItems}
     />
 );
 
