@@ -45,7 +45,7 @@ You can see simple example in directory `examples/basic` or how I use it in my a
 * Superagent
 * Faicon
 * react-custom-scrollbars
-* react-l20n-u
+* react-l20n-u (soon)
 
 #### Font Icons:
 * Font Awesome 4
