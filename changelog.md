@@ -1,3 +1,5 @@
+## 1.0.0
+
 ## 0.3.0 _(not released)_
 * Component Edit
 * Component Errors
