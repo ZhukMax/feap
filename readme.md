@@ -43,12 +43,12 @@ You can see simple example in directory `examples/basic` or how I use it in my a
 * Webpack
 * Babel
 * Superagent
-* Faicon
 * react-custom-scrollbars
 * react-l20n-u (soon)
 
 #### Font Icons:
 * Font Awesome 4
+* Faicon
 
 ## Change log
 

@@ -2,9 +2,12 @@
 .idea/
 
 # Generated files
-public/assets/
-node_modules/
-stat.json
+/public/assets/
+/node_modules/
+/stat.json
+/package-lock.json
 
 # Log Files
-logs/
+/logs/
+
+.Thumbs

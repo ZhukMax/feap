@@ -46,7 +46,7 @@
     "superagent": "3.5.*",
     "superagent-no-cache": "*",
     "url-loader": "0.5.*",
-    "webpack": "3.*",
-    "webpack-dev-server": "2.*"
+    "webpack": "4.*",
+    "webpack-dev-server": "3.*"
   }
 }
