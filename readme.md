@@ -1,6 +1,4 @@
-# FrontEnd Admin Panel
-
-# While this does not work, I try to make the first version!!!
+# FrontEnd Admin Panel (alfa)
 
 ## Install
 
