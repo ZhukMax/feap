@@ -43,7 +43,7 @@
     "redux-router": "2.*",
     "redux-thunk": "2.*",
     "style-loader": "0.13.*",
-    "superagent": "3.5.*",
+    "superagent": "3.7.*",
     "superagent-no-cache": "*",
     "url-loader": "0.5.*",
     "webpack": "4.*",
