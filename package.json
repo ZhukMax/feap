@@ -34,7 +34,7 @@
     "react-custom-scrollbars": "4.*",
     "react-dom": "15.*",
     "react-l20n-u": "0.0.14",
-    "react-mce": "0.6.1",
+    "@tinymce/tinymce-react": "2.2.5",
     "react-redux": "5.*",
     "react-router": "3.*",
     "react-router-redux": "4.*",
