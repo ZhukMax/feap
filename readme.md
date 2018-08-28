@@ -32,12 +32,12 @@ You can see simple example in directory `examples/basic`
 
 ## Credits 
 #### Plugins:
-* Facebook React.js
+* [Facebook React.js][link-React]
 * React DOM
 * React Router
 * [Bootstrap 4][link-Bootstrap]
 * [Reactstrap][link-reactstrap]
-* Redux
+* [Redux 4][link-Redux]
 * Webpack
 * Babel
 * Superagent
@@ -58,3 +58,5 @@ The Apache License Version 2.0. Please see [License File](license.md) for more i
 
 [link-reactstrap]: https://reactstrap.github.io
 [link-Bootstrap]: http://getbootstrap.com/
+[link-React]: https://reactjs.org/
+[link-Redux]: https://redux.js.org/
