@@ -28,7 +28,7 @@ const myApp = (
 
 ReactDOM.render(myApp, document.getElementById('root'));
 ```
-You can see simple example in directory `examples/basic` or how I use it in my another projects like [Phoxie][link-phoxie]
+You can see simple example in directory `examples/basic`
 
 ## Credits 
 #### Plugins:
@@ -56,6 +56,5 @@ Please see [CHANGELOG](changelog.md) for more information what has changed recen
 
 The Apache License Version 2.0. Please see [License File](license.md) for more information.
 
-[link-phoxie]: https://github.com/ZhukMax/phoxie
 [link-reactstrap]: https://reactstrap.github.io
 [link-Bootstrap]: http://getbootstrap.com/

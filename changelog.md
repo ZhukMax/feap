@@ -1,4 +1,5 @@
-## 1.0.0
+## 0.4.0
+* Update dependencies
 
 ## 0.3.0 _(not released)_
 * Component Edit
