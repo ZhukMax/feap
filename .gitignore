@@ -6,6 +6,7 @@
 /node_modules/
 /stat.json
 /package-lock.json
+/build/
 
 # Log Files
 /logs/
