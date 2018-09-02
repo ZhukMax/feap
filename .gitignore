@@ -7,8 +7,10 @@
 /stat.json
 /package-lock.json
 /build/
+/devBuild/
 
 # Log Files
 /logs/
 
+# Windows
 .Thumbs
